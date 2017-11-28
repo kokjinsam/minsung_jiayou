@@ -1,0 +1,40 @@
+<template name="blog">
+  <h2>Blog</h2>
+
+  <button id="newEntry">New Entry</button>
+
+  <aside style="float:left">
+    <h4>Topics ({{blogCount}}):</h4>
+    <ul>
+      {{#each blog}}
+      <li>
+        <a href="{{pathFor route='blogItem'}}">{{title}}</a>
+      </li>
+      {{/each}}
+    </ul>
+
+    <button id="deleteAll">Delete All</button>
+  </aside>
+
+  <article>
+    {{> blogItem}}
+  </article>
+</template>
+
+<template name="addBlog">
+  <form>
+    <br>
+    <input type="text" placeholder="Title here..." name="title" style="width:30%">
+    <br>
+    <textarea rows="10" cols="30" placeholder="Content here..." name="content"></textarea>
+    <br>
+    <input type="submit" value="Add Entry">
+  </form>
+</template>
+
+<template name="blogItem">
+  {{#if isSelected}}
+  <p>{{content}}</p>
+  <p>Added on: {{createdOn}}</p>
+  {{/if}}
+</template>

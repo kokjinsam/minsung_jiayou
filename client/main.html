@@ -1,0 +1,16 @@
+<template name="main">
+
+  <head>
+    <title>Programmer's Portfolio</title>
+  </head>
+  <header>
+    <h2>My Portfolio</h2>
+    <nav>
+      <a href="{{pathFor route='bio'}}"> Bio </a> |
+      <a href="{{pathFor route='projects'}}"> Projects </a> | Blog | Skills
+    </nav>
+  </header>
+  <main>
+    {{> yield}}
+  </main>
+</template>
