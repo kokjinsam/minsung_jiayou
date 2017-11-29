@@ -49,7 +49,7 @@ Template.blogItem.helpers({
     return this._id != undefined;
   },
   blogComments: function() {
-    return BlogComments.find({}, { sort: { createdOn: 1 } });
+    return BlogComments.find({ blog_id: this._id }, { sort: { createdOn: 1 } });
   },
 });
 
@@ -60,13 +60,12 @@ Template.addBlogComment.events({
     let comment = target.comment.value;
     let date = new Date();
     const blogComment = BlogComments.insert({
+      blog_id: this._id,
       comment: comment,
       commentedAt: date,
       author_id: Meteor.userId(),
       author_username: Meteor.user().username,
     });
-
-    console.log(this);
 
     target.comment.value = "";
   },
