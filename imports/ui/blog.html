@@ -1,9 +1,7 @@
 <template name="blog">
   <h2>Blog</h2>
 
-  <button id="newEntry">New Entry</button>
-
-  <aside style="float:left">
+  <aside>
     <h4>Topics ({{blogCount}}):</h4>
     <ul>
       {{#each blog}}
@@ -13,6 +11,7 @@
       {{/each}}
     </ul>
 
+    <button id="newEntry">New Entry</button>
     <button id="deleteAll">Delete All</button>
   </aside>
 
@@ -35,6 +34,7 @@
 <template name="blogItem">
   {{#if isSelected}}
   <p>{{content}}</p>
+  <p>Author: {{author_username}}</p>
   <p>Added on: {{createdOn}}</p>
   {{/if}}
 </template>

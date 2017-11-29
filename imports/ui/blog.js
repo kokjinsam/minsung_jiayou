@@ -33,12 +33,12 @@ Template.addBlog.events({
       title: title,
       createdOn: date,
       content: content,
+      author_id: Meteor.userId(),
+      author_username: Meteor.user().username,
     });
 
     target.title.value = "";
     target.content.value = "";
-
-    console.log(blog);
 
     Router.go(`/blog/${blog}`);
   },
