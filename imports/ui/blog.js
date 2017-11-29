@@ -1,5 +1,5 @@
 import { Template } from "meteor/templating";
-import { Blogs } from "../api/blogs";
+import { Blogs, BlogComments } from "../api/blogs";
 
 Template.blog.events({
   "click #newEntry"() {
@@ -47,5 +47,27 @@ Template.addBlog.events({
 Template.blogItem.helpers({
   isSelected() {
     return this._id != undefined;
+  },
+  blogComments: function() {
+    return BlogComments.find({}, { sort: { createdOn: 1 } });
+  },
+});
+
+Template.addBlogComment.events({
+  "submit form": function(event) {
+    event.preventDefault();
+    const target = event.target;
+    let comment = target.comment.value;
+    let date = new Date();
+    const blogComment = BlogComments.insert({
+      comment: comment,
+      commentedAt: date,
+      author_id: Meteor.userId(),
+      author_username: Meteor.user().username,
+    });
+
+    console.log(this);
+
+    target.comment.value = "";
   },
 });

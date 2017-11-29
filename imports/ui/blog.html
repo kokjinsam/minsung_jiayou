@@ -36,5 +36,24 @@
   <p>{{content}}</p>
   <p>Author: {{author_username}}</p>
   <p>Added on: {{createdOn}}</p>
+  <ul>
+    {{#each blogComments}}
+    <li>
+      <p>{{comment}} - {{author_username}}</p>
+    </li>
+    {{/each}}
+  </ul>
+  <div>
+    {{> addBlogComment}}
+  </div>
   {{/if}}
+</template>
+
+<template name="addBlogComment">
+  <form>
+    <br>
+    <textarea rows="10" cols="30" placeholder="Comment here" name="comment"></textarea>
+    <br>
+    <input type="submit" value="Add Comment">
+  </form>
 </template>
