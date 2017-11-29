@@ -2,6 +2,8 @@ import "../imports/ui/bio.html";
 import "../imports/ui/projects.html";
 import "../imports/ui/blog.html";
 import "../imports/ui/blog";
+import "../imports/ui/collection.html";
+import "../imports/ui/collection";
 import { Blogs } from "../imports/api/blogs";
 
 Router.configure({
@@ -31,4 +33,9 @@ Router.route("/blog/:_id", {
 
     return Blogs.findOne({ _id: currentBlog });
   },
+});
+
+Router.route("/collection", {
+  name: "collection",
+  template: "collection",
 });

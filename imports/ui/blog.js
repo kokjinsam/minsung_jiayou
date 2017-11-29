@@ -1,5 +1,5 @@
 import { Template } from "meteor/templating";
-import { Blogs } from "../api/blogs.js";
+import { Blogs } from "../api/blogs";
 
 Template.blog.events({
   "click #newEntry"() {

@@ -1,0 +1,11 @@
+<template name="collection">
+  <h1>Collection</h1>
+  <ul>
+    {{#each courses}}
+    <li>
+      <a href="{{url}}">{{title}}</a>
+      <img src="{{badge}}" />
+    </li>
+    {{/each}}
+  </ul>
+</template>
