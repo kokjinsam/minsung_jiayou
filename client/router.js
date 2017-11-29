@@ -1,3 +1,4 @@
+import "../imports/startup/accounts-config";
 import "../imports/ui/bio.html";
 import "../imports/ui/projects.html";
 import "../imports/ui/blog.html";
